@@ -31,7 +31,8 @@ class BestPractice(Directive):
 
 def visit_bestpractice_node(self, node):
     #self.body.append(self.starttag(node, 'div', CLASS=('admonition best-practice')))
-    self.set_first_last(node)
+    #self.depart_admonition(node)
+    self.visit_admonition(node)
 
 def depart_bestpractice_node(self, node):
     self.depart_admonition(node)
