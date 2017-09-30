@@ -30,12 +30,12 @@ class BestPractice(Directive):
         return ret
 
 def visit_bestpractice_node(self, node):
-    self.body.append(self.starttag(node, 'div', CLASS=('admonition best-practice')))
+    #self.body.append(self.starttag(node, 'div', CLASS=('admonition best-practice')))
     self.set_first_last(node)
 
 def depart_bestpractice_node(self, node):
     self.depart_admonition(node)
 
 def setup(app):
-    app.add_node(bestpractice, html=(visit_bestpractice_node, depart_bestpractice_node))
+    app.add_node(bestpractice, html=(visit_bestpractice_node, depart_bestpractice_node), latex=(visit_bestpractice_node, depart_bestpractice_node))
     app.add_directive('best-practice', BestPractice)
